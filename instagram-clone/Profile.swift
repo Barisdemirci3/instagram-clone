@@ -45,6 +45,16 @@ struct Profile: View {
                 
             }
             .padding(.horizontal)
+                ScrollView(.horizontal, showsIndicators: false){
+                    HStack{
+                        ForEach(1..<100){_ in
+                            ProfileFavorites(profileFavoriteName: "Alev")
+                                .padding(.horizontal, 10)
+                                .padding(.vertical, 20)
+                        }
+                    }
+                }
+            
         }
        
     }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Posts: View {
+    @State var handleLike : Bool = false
     var body: some View {
         VStack{
             HStack{
@@ -25,10 +26,13 @@ struct Posts: View {
                 .resizable()
                 .frame(height: 400)
             HStack{
-                Image(systemName: "heart")
+                Image(systemName: handleLike == true ? "heart.fill" : "heart")
                     .resizable()
                     .frame(width: 20, height: 20)
                     .bold()
+                    .onTapGesture {
+                        handleLike = handleLike == true ? false : true
+                    }
                 Text("1.23M ")
                 Image(systemName: "bubble")
                     .resizable()

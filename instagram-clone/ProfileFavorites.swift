@@ -26,7 +26,7 @@ struct ProfileFavorites: View {
                     .overlay(Circle().stroke(Color.black, lineWidth: 5))
             }
             if let name = profileFavoriteName {
-                Text(profileFavoriteName!)
+                Text(name)
             }
             else{
                 Text("Yazı yok!")

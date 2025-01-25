@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProfileFavorites: View {
+    @Environment(\.colorScheme) var colorScheme
     var profileFavoriteName : String?
     var body: some View {
         VStack {
@@ -23,7 +24,7 @@ struct ProfileFavorites: View {
                 Circle()
                     .fill(Color.red.opacity(0))
                     .frame(width: 70, height: 70)
-                    .overlay(Circle().stroke(Color.black, lineWidth: 5))
+                    .overlay(Circle().stroke(colorScheme == .dark ? Color.black : Color.white, lineWidth: 5))
             }
             if let name = profileFavoriteName {
                 Text(name)

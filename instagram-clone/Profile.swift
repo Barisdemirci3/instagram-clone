@@ -9,6 +9,12 @@ import SwiftUI
 
 struct Profile: View {
     @Environment(\.colorScheme) var colorScheme
+    @State private var selectedTab = 0
+    let columns: [GridItem] = [
+        GridItem(.flexible()), // İlk kolon
+        GridItem(.flexible()), // İkinci kolon
+        GridItem(.flexible())  // Üçüncü kolon
+    ]
     var body: some View {
         VStack{
             ProfileTopBar()
@@ -54,7 +60,59 @@ struct Profile: View {
                         }
                     }
                 }
+            HStack {
+                TabText(title: "circle.grid.3x3",isSelected: selectedTab == 0, isSystemName: true) {
+                    selectedTab = 0
+                }
+                TabText(title: "photo.on.rectangle.angled",isSelected: selectedTab == 1, isSystemName: true) {
+                    selectedTab = 1
+                }
+                TabText(title: "person.crop.circle",isSelected: selectedTab == 2, isSystemName: true) {
+                    selectedTab = 2
+                }
+            }
+            .padding(.horizontal)
             
+            // İçerik Alanı
+            TabView(selection: $selectedTab) {
+                ScrollView(.vertical, showsIndicators: false){
+                    LazyVGrid(columns: columns, spacing: 20){
+                        ForEach(1..<100){ _ in
+                            Image("handsome")
+                                .resizable()
+                                .frame(width: 130, height: 230)
+                                .aspectRatio(contentMode: .fill)
+                                .clipped()
+                        }
+                    }
+                }
+                    .tag(0)
+                ScrollView(.vertical, showsIndicators: false){
+                    LazyVGrid(columns: columns, spacing: 20){
+                        ForEach(1..<100){ _ in
+                            Image("handsome")
+                                .resizable()
+                                .frame(width: 130, height: 230)
+                                .aspectRatio(contentMode: .fill)
+                                .clipped()
+                        }
+                    }
+                }
+                    .tag(1)
+                ScrollView(.vertical, showsIndicators: false){
+                    LazyVGrid(columns: columns, spacing: 20){
+                        ForEach(1..<100){ _ in
+                            Image("handsome")
+                                .resizable()
+                                .frame(width: 130, height: 230)
+                                .aspectRatio(contentMode: .fill)
+                                .clipped()
+                        }
+                    }
+                }
+                    .tag(2)
+            }
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
         }
        
     }

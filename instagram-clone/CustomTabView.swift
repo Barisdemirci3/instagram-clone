@@ -8,6 +8,8 @@ struct CustomTabView: View {
             switch selectedTab {
             case 0:
                 ContentView()
+            case 1:
+                SearchPage()
             case 4:
                 Profile()
             default:

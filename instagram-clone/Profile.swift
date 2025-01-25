@@ -76,11 +76,11 @@ struct Profile: View {
             // İçerik Alanı
             TabView(selection: $selectedTab) {
                 ScrollView(.vertical, showsIndicators: false){
-                    LazyVGrid(columns: columns, spacing: 20){
+                    LazyVGrid(columns: columns, spacing: 0){
                         ForEach(1..<100){ _ in
                             Image("handsome")
                                 .resizable()
-                                .frame(width: 130, height: 230)
+                                .frame(width: 137, height: 240)
                                 .aspectRatio(contentMode: .fill)
                                 .clipped()
                         }
@@ -88,11 +88,11 @@ struct Profile: View {
                 }
                     .tag(0)
                 ScrollView(.vertical, showsIndicators: false){
-                    LazyVGrid(columns: columns, spacing: 20){
+                    LazyVGrid(columns: columns, spacing: 0){
                         ForEach(1..<100){ _ in
                             Image("handsome")
                                 .resizable()
-                                .frame(width: 130, height: 230)
+                                .frame(width: 137, height: 240)
                                 .aspectRatio(contentMode: .fill)
                                 .clipped()
                         }
@@ -100,11 +100,11 @@ struct Profile: View {
                 }
                     .tag(1)
                 ScrollView(.vertical, showsIndicators: false){
-                    LazyVGrid(columns: columns, spacing: 20){
+                    LazyVGrid(columns: columns, spacing: 0){
                         ForEach(1..<100){ _ in
                             Image("handsome")
                                 .resizable()
-                                .frame(width: 130, height: 230)
+                                .frame(width: 137, height: 240)
                                 .aspectRatio(contentMode: .fill)
                                 .clipped()
                         }

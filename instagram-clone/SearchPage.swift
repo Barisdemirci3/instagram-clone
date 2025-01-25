@@ -8,8 +8,25 @@
 import SwiftUI
 
 struct SearchPage: View {
+    let columns: [GridItem] = [
+        GridItem(.flexible(), spacing: 0), // İlk kolon
+        GridItem(.flexible(),spacing: 0), // İkinci kolon
+        GridItem(.flexible(),spacing: 0)  // Üçüncü kolon
+    ]
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            SearchPageTopBar()
+            ScrollView(.vertical){
+                LazyVGrid(columns: columns, spacing: 0) {
+                    ForEach(0..<100) { _ in
+                        SearchUserCard()
+                            .clipped()
+                            .scaledToFit()
+                    }
+                }
+                
+            }
+        }
     }
 }
 

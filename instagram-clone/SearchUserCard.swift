@@ -9,7 +9,17 @@ import SwiftUI
 
 struct SearchUserCard: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            ZStack{
+                Image("handsome")
+                    .resizable()
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 200)
+                Image(systemName: "camera.fill")
+                    .offset(x:180, y:-85)
+            }
+            
+        }
     }
 }
 
